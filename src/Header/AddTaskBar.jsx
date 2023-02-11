@@ -5,7 +5,7 @@ const AddTaskBar = () => {
 	return (
 		<form>
 			<input
-				type=''
+				type='text'
 				id='country-search'
 				placeholder='Add your task here...'
 				ref={taskRef}
