@@ -1,0 +1,10 @@
+.layout {
+	margin: 3rem auto;
+	border-radius: 60px;
+	background-color: #d9d9d9;
+	padding: 2rem 3rem;
+	border: 6px solid black;
+	width: 40%;
+	height: 100%;
+	box-sizing: border-box;
+}
