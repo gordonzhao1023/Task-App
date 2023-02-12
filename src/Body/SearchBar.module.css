@@ -1,0 +1,34 @@
+.search {
+	width: 75%;
+	height: 40px;
+	border-radius: 35px;
+	padding: 12px 20px;
+	font-size: 15px;
+	flex-basis: auto;
+	column-gap: normal;
+}
+
+.form {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.form button {
+	cursor: pointer;
+	border: 1px solid black;
+	box-sizing: border-box;
+	border-radius: 10px;
+	background-color: white;
+}
+
+.form button:hover,
+.form button:active {
+	background-color: blanchedalmond;
+	scale: 1.1;
+}
+
+.form button:focus {
+	outline-color: transparent;
+	outline-style: solid;
+}
