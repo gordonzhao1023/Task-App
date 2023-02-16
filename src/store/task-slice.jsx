@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const taskSlice = createSlice({
 	name: 'task',
 	initialState: {
-		loading: error,
+		loading: false,
 		taskInput: '',
 		searchInput: '',
 		taskList: [],
@@ -22,7 +22,6 @@ const taskSlice = createSlice({
 		addToList(state, action) {
 			const newTask = action.payload;
 			state.taskList = state.taskList.push({
-				id: newTask.id,
 				description: newTask.description,
 				isDone: false,
 			});

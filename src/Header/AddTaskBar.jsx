@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useRef } from 'react';
 
 const AddTaskBar = () => {
 	const taskRef = useRef('');

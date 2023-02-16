@@ -8,6 +8,7 @@ function App() {
 	return (
 		<Layout>
 			<Header />
+			<h1>hello</h1>
 		</Layout>
 	);
 
