@@ -4,6 +4,7 @@ const taskSlice = createSlice({
 	name: 'task',
 	initialState: {
 		loading: false,
+		done: false,
 		taskInput: '',
 		searchInput: '',
 		taskList: [],
@@ -18,6 +19,9 @@ const taskSlice = createSlice({
 		},
 		setSearchInput(state, action) {
 			state.searchInput = action.payload;
+		},
+		toggleDone(state) {
+			state.done = !state.done;
 		},
 		addToList(state, action) {
 			const newTask = action.payload;

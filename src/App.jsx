@@ -3,12 +3,13 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import Layout from './UI/Layout';
 import Header from './Header/Header';
+import Body from './Body/Body';
 
 function App() {
 	return (
 		<Layout>
 			<Header />
-			<h1>hello</h1>
+			<Body />
 		</Layout>
 	);
 
