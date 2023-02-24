@@ -1,5 +1,6 @@
 import { taskActions } from '../store/task-slice';
 import { useSelector, useDispatch } from 'react-redux';
+import { fetchTaskList } from '../store/task-action';
 
 const FilterButtons = () => {
 	const dispatch = useDispatch();
@@ -14,15 +15,17 @@ const FilterButtons = () => {
 
 	const doneHandler = (e) => {
 		e.preventDefault();
+		console.log(isSetToDone);
 		if (!isSetToDone) {
 			dispatch(taskActions.toggleDone());
+			dispatch(fetchTaskList());
 		}
 	};
 
 	return (
 		<div>
-			<button onSubmit={toDoHandler}>To-Do</button>
-			<button onSubmit={doneHandler}>Done</button>
+			<button onClick={toDoHandler}>To-Do</button>
+			<button onClick={doneHandler}>Done</button>
 		</div>
 	);
 };
