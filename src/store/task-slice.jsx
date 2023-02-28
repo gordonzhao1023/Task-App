@@ -5,28 +5,26 @@ const taskSlice = createSlice({
 	initialState: {
 		loading: false,
 		done: false,
-		taskInput: '',
+		isSearching: false,
 		searchInput: '',
-		changed: false,
 		taskList: [
 			// { description: 'meow', isDone: false },
 			// { description: 'jumi', isDone: true },
 		],
+		searchResultList: [],
 	},
 	reducers: {
 		toggleLoading(state) {
 			state.loading = !state.loading;
 		},
-		setSearchInput(state, action) {
-			state.searchInput = action.payload;
+		toggleSearching(state) {
+			state.isSearching = !state.isSearching;
 		},
 		toggleDone(state) {
-			state.changed = true;
 			state.done = !state.done;
 		},
 		addToList(state, action) {
 			const newTask = action.payload;
-			state.changed = true;
 			state.taskList.push({
 				description: newTask,
 				isDone: false,
@@ -34,32 +32,21 @@ const taskSlice = createSlice({
 		},
 		deleteFromList(state, action) {
 			const id = action.payload;
-			state.changed = true;
 			state.taskList = state.taskList.filter((item) => item.id !== id);
-		},
-		searchFromList(state, action) {
-			const input = state.searchInput;
-			const allTasks = [...state.taskList];
-			state.changed = true;
-			const searchResults = [];
-			for (const task in allTasks) {
-				if (task.descritpion.includes(input)) {
-					searchResults.push(task);
-				}
-			}
-			return searchResults;
 		},
 		addToDoneList(state, action) {
 			const id = action.payload;
-			state.changed = true;
 			const doneItem = state.taskList.filter((item) => item.id === id);
 			doneItem.isDone = !doneItem.isDone;
 			//
 		},
 		renderTaskList(state, action) {
 			const loadedTasks = action.payload;
-			state.changed = true;
 			state.taskList = [...loadedTasks];
+		},
+		renderSearchResultList(state, action) {
+			const searchResults = action.payload;
+			state.searchResultList = [...searchResults];
 		},
 		// returnList(state) {
 		// 	if (state.done) {

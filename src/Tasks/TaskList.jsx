@@ -5,27 +5,49 @@ import TaskItem from './TaskItem';
 const TaskList = () => {
 	let Tasks;
 	const isSetToDone = useSelector((state) => state.task.done);
+	const isSetToSearching = useSelector((state) => state.task.isSearching);
 
-	if (!isSetToDone) {
-		Tasks = useSelector((state) => state.task.taskList);
+	// if (!isSetToDone) {
+	// 	if (isSetToSearching) {
+	// 		Tasks = useSelector((state) => state.task.searchResultList);
+	// 	} else {
+	// 		const tasks = useSelector((state) => state.task.taskList);
+	// 		Tasks = tasks.filter((task) => task.isDone === false);
+	// 	}
+	// } else {
+
+	// 	const currentTasks = useSelector((state) => state.task.taskList);
+	// 	Tasks = currentTasks.filter((task) => task.isDone === true);
+	// }
+
+	if (isSetToSearching) {
+		Tasks = useSelector((state) => state.task.searchResultList);
 	} else {
-		const currentTasks = useSelector((state) => state.task.taskList);
-		console.log(currentTasks);
-		Tasks = currentTasks.filter((task) => task.isDone === true);
+		if (!isSetToDone) {
+			const tasks = useSelector((state) => state.task.taskList);
+			Tasks = tasks.filter((task) => task.isDone === false);
+		} else {
+			const currentTasks = useSelector((state) => state.task.taskList);
+			Tasks = currentTasks.filter((task) => task.isDone === true);
+		}
 	}
-	console.log(Tasks);
 
 	// this is where i would map
 	return (
 		<ul>
-			{Tasks.map((task) => (
-				<TaskItem
-					key={task.id}
-					id={task.id}
-					description={task.description}
-					isDone={task.isDone}
-				/>
-			))}
+			{isSetToSearching && Tasks.length === 0 && <p>No task found</p>}
+			{Tasks.length === 0 && !isSetToSearching ? (
+				<p>Nothing to see here...</p>
+			) : (
+				Tasks.map((task) => (
+					<TaskItem
+						key={task.id}
+						id={task.id}
+						description={task.description}
+						isDone={task.isDone}
+					/>
+				))
+			)}
 		</ul>
 	);
 };

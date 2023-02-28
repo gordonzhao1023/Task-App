@@ -15,13 +15,13 @@ let isInitial = true;
 function App() {
 	const dispatch = useDispatch();
 	const Task = useSelector((state) => state.task);
-	console.log(Task);
+	// console.log(Task);
 	const getValue = (value) => {
 		return value;
 	};
 
 	const realTasks = useMemo(() => getValue(Task), []);
-	console.log(realTasks);
+	// console.log(realTasks);
 
 	useEffect(() => {
 		dispatch(fetchTaskList());
