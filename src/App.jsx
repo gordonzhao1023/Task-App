@@ -21,7 +21,7 @@ function App() {
 	};
 
 	const realTasks = useMemo(() => getValue(Task), []);
-	// console.log(realTasks);
+	// console.log(realTasks);s
 
 	useEffect(() => {
 		dispatch(fetchTaskList());

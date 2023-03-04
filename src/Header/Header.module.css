@@ -1,0 +1,10 @@
+.header {
+	border-bottom: 4px black solid;
+	box-sizing: border-box;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+}
+
+.title {
+	margin-bottom: 13px;
+}

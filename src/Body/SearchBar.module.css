@@ -8,10 +8,20 @@
 	column-gap: normal;
 }
 
+.searchBar {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
 .form {
 	display: flex;
 	justify-content: space-between;
 	gap: 10px;
+}
+
+.form input {
+	width: 100%;
 }
 
 .form button {

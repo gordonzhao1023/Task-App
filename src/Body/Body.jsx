@@ -6,13 +6,13 @@ import classes from './Body.module.css';
 
 const Body = () => {
 	return (
-		<React.Fragment>
+		<section className={classes.body}>
 			<div className={classes.navbar}>
 				<FilterBuottons />
 				<SearchBar />
 			</div>
 			<TaskList />
-		</React.Fragment>
+		</section>
 	);
 };
 

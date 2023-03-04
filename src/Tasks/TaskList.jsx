@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { taskActions } from '../store/task-slice';
 import TaskItem from './TaskItem';
+import classes from './TaskList.module.css';
 
 const TaskList = () => {
 	let Tasks;
@@ -34,7 +35,7 @@ const TaskList = () => {
 
 	// this is where i would map
 	return (
-		<ul>
+		<ul className={classes.tasklist}>
 			{isSetToSearching && Tasks.length === 0 && <p>No task found</p>}
 			{Tasks.length === 0 && !isSetToSearching ? (
 				<p>Nothing to see here...</p>

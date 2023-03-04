@@ -18,11 +18,13 @@ const TaskItem = (props) => {
 	};
 
 	return (
-		<li>
-			<Card>
+		<li className={classes.taskItem}>
+			<Card className={classes.taskWrapper}>
 				<p className={classes.title}>{props.description}</p>
-				<button onClick={addToDoneHandler}>Finished!</button>
-				<button onClick={deleteTaskHandler}>Delete</button>
+				<div className={classes.buttons}>
+					<button onClick={addToDoneHandler}>Done!</button>
+					<button onClick={deleteTaskHandler}>Delete</button>
+				</div>
 			</Card>
 		</li>
 	);

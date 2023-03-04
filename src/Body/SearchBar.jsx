@@ -28,7 +28,7 @@ const SearchBar = () => {
 	};
 
 	return (
-		<React.Fragment>
+		<section className={classes.searchBar}>
 			<form onSubmit={searchTaskHandler} className={classes.form}>
 				<input
 					type='search'
@@ -40,7 +40,7 @@ const SearchBar = () => {
 				<button>SEARCH</button>
 			</form>
 			<button onClick={clearSearchHandler}>Clear</button>
-		</React.Fragment>
+		</section>
 	);
 };
 
