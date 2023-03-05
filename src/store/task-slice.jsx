@@ -5,6 +5,7 @@ const taskSlice = createSlice({
 	initialState: {
 		loading: false,
 		done: false,
+		error: false,
 		isSearching: false,
 		searchInput: '',
 		taskList: [
@@ -19,6 +20,9 @@ const taskSlice = createSlice({
 		},
 		toggleSearching(state) {
 			state.isSearching = !state.isSearching;
+		},
+		toggleError(state) {
+			state.error = !state.error;
 		},
 		toggleDone(state) {
 			state.done = !state.done;

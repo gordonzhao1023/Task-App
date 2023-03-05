@@ -11,7 +11,11 @@ const AddTaskBar = () => {
 	const addTaskHandler = (e) => {
 		e.preventDefault();
 		const newTask = taskRef.current.value;
-		dispatch(addTask(newTask));
+		if (newTask.length !== 0) {
+			dispatch(addTask(newTask));
+		} else {
+			dispatch(taskActions.toggleError());
+		}
 		taskRef.current.value = '';
 	};
 

@@ -4,6 +4,7 @@ import FilterBuottons from './FilterButtons';
 import SearchBar from './SearchBar';
 import Loader from '../UI/Loader';
 import classes from './Body.module.css';
+// import classes from '../'
 import { useSelector } from 'react-redux';
 
 const Body = () => {
@@ -14,7 +15,13 @@ const Body = () => {
 				<FilterBuottons />
 				<SearchBar />
 			</div>
-			{isLoading ? <Loader /> : <TaskList />}
+			{isLoading ? (
+				<div className={classes.loader}>
+					<Loader />
+				</div>
+			) : (
+				<TaskList />
+			)}
 		</section>
 	);
 };

@@ -6,6 +6,7 @@
 	font-size: 15px;
 	flex-basis: auto;
 	column-gap: normal;
+	background-color: white;
 }
 
 .searchBar {
