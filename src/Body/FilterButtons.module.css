@@ -1,0 +1,11 @@
+.active {
+	background-color: #ffbebc;
+}
+
+.filterButtons {
+	display: flex;
+	gap: 10px;
+	justify-content: start;
+	width: 100%;
+	/* justify-content: space-evenly; */
+}

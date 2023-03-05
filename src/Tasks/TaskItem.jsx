@@ -22,7 +22,7 @@ const TaskItem = (props) => {
 			<Card className={classes.taskWrapper}>
 				<p className={classes.title}>{props.description}</p>
 				<div className={classes.buttons}>
-					<button onClick={addToDoneHandler}>Done!</button>
+					<button onClick={addToDoneHandler}>Finished</button>
 					<button onClick={deleteTaskHandler}>Delete</button>
 				</div>
 			</Card>

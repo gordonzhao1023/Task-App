@@ -10,13 +10,13 @@ export const fetchTaskList = () => {
 				throw new Error('Something went wrong');
 			}
 			const data = await response.json();
+			dispatch(taskActions.toggleLoading());
 			return data;
 		};
 
 		try {
 			const taskList = await fetchTasks();
 			// taskList will be an array of objects
-			// dispatch(taskActions.toggleLoading());
 			console.log(taskList);
 			const loadedTasks = [];
 			for (const key in taskList) {
@@ -36,7 +36,7 @@ export const fetchTaskList = () => {
 export const addTask = (task) => {
 	return async (dispatch) => {
 		const postData = async () => {
-			// dispatch(taskActions.toggleLoading());
+			dispatch(taskActions.toggleLoading());
 			const response = await fetch(API_URL, {
 				method: 'POST',
 				body: JSON.stringify({
@@ -54,11 +54,11 @@ export const addTask = (task) => {
 
 			const data = await response.json();
 
+			dispatch(taskActions.toggleLoading());
 			return data;
 		};
 		try {
 			const newTask = await postData();
-			dispatch(taskActions.toggleLoading());
 			dispatch(taskActions.addToList(task));
 			dispatch(fetchTaskList());
 		} catch (err) {
@@ -70,6 +70,7 @@ export const addTask = (task) => {
 export const deleteTask = (id) => {
 	return async (dispatch) => {
 		const deleteTask = async () => {
+			dispatch(taskActions.toggleLoading());
 			const response = await fetch(
 				`https://to-do-list-app-3703b-default-rtdb.firebaseio.com/tasks/${id}.json`,
 				{
@@ -83,11 +84,11 @@ export const deleteTask = (id) => {
 			if (!response.ok) {
 				throw new Error('Something went wrong. Unable to add task');
 			}
+			dispatch(taskActions.toggleLoading());
 		};
 
 		try {
 			await deleteTask();
-			dispatch(taskActions.toggleLoading());
 			dispatch(taskActions.deleteFromList(id));
 		} catch (err) {
 			console.error(err);
@@ -98,6 +99,7 @@ export const deleteTask = (id) => {
 export const finishTask = (id) => {
 	return async (dispatch) => {
 		const setTaskToDone = async () => {
+			dispatch(taskActions.toggleLoading());
 			const response = await fetch(
 				`https://to-do-list-app-3703b-default-rtdb.firebaseio.com/tasks/${id}.json`,
 				{
@@ -117,6 +119,7 @@ export const finishTask = (id) => {
 					'Something went wrong. Unable to set this task to Done!'
 				);
 			}
+			dispatch(taskActions.toggleLoading());
 		};
 
 		try {
