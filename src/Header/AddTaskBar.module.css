@@ -16,6 +16,10 @@
 	padding-left: 10px;
 }
 
+.form button {
+	font-weight: bold;
+}
+
 ::placeholder {
 	color: black;
 	font-weight: bold;
