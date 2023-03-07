@@ -7,6 +7,7 @@
 	flex-basis: auto;
 	column-gap: normal;
 	background-color: white;
+	color: black;
 }
 
 .searchBar {
@@ -34,19 +35,13 @@
 
 .form button {
 	cursor: pointer;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	box-sizing: border-box;
 	border-radius: 10px;
 	background-color: white;
 }
 
-.form button:hover,
-.form button:active {
-	background-color: blanchedalmond;
-	scale: 1.1;
-}
-
 .form button:focus {
 	outline-color: transparent;
-	outline-style: solid;
+	/* outline-style: solid; */
 }

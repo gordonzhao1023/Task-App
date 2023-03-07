@@ -35,7 +35,7 @@ const TaskList = () => {
 
 	// this is where i would map
 	return (
-		<ul className={classes.tasklist}>
+		<ul className={classes.taskList}>
 			{isSetToSearching && Tasks.length === 0 && <p>No task found</p>}
 			{Tasks.length === 0 && !isSetToSearching ? (
 				<p>Nothing to see here...</p>

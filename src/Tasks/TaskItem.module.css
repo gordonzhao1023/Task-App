@@ -6,18 +6,21 @@
 	list-style: none;
 	/* width: 100%; */
 	width: 100%;
+	margin-block-end: 0;
 	/* margin: 0; */
 }
 
 .taskWrapper {
-	margin: 1rem 0;
+	/* margin: 1rem; */
+	box-sizing: border-box;
 	border-radius: 25px;
 	background-color: #efe5cd;
 	/* padding: 1rem; */
-	width: 96%;
+	width: 100%;
 	height: 50%;
 	display: flex;
 	justify-content: space-between;
+	/* margin-block-end: 0; */
 }
 
 .buttons {
